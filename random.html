@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LearnCore</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="random.js" charset="utf-8"></script>
+    <script type="text/javascript" src="random2.js" charset="utf-8"></script>
+    <script>
+        $(document).ready(function () {
+            $('#patternBtn').on('click', function (e) {
+                e.preventDefault();
+                var arr = $('#array').val().split(',');
+                arr = arr.map(function(el) {
+                    return parseInt(el);
+                })
+               $('#patternOutput').text(randomizeByPattern(arr));
+            });
+            $('#randomBtn').on('click', function (e) {
+                e.preventDefault();
+                var arr = $('#array').val().split(',');
+                arr = arr.map(function(el) {
+                    return parseInt(el);
+                })
+                $('#randomOutput').text(randomize(arr));
+            });
+        });
+    </script>
+</head>
+<body>
+
+<html>
+<form>
+    Enter comma-separated numbers: <input id="array" value="" />
+    <br/>
+    <br/>
+    <input type="submit" value="Output based on sample pattern" id="patternBtn"/> <div id="patternOutput"></div>
+    <br/>
+    <br/>
+    <input type="submit" value="Random output (closer to the requirements)" id="randomBtn"/> <div id="randomOutput"></div>
+</form>
+</html>
+
+</body>
+</html>
